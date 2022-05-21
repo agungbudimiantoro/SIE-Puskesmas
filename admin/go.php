@@ -21,149 +21,81 @@ if ($p == "") {
     $nav     = "User";
     $judul     = "User proses";
     $ambil     = "mod_user/$p.php";
-} elseif ($p == "dokter_data") {
-    //dokter 
-    $nav     = "dokter";
-    $judul     = "dokter data";
-    $ambil     = "mod_dokter/$p.php";
-} elseif ($p == "dokter_tambah") {
-    $nav     = "dokter";
-    $judul     = "dokter tambah";
-    $ambil     = "mod_dokter/$p.php";
-} elseif ($p == "dokter_edit") {
-    $nav     = "dokter";
-    $judul     = "dokter edit";
-    $ambil     = "mod_dokter/$p.php";
-} elseif ($p == "dokter_proses") {
-    $nav     = "dokter";
-    $judul     = "dokter proses";
-    $ambil     = "mod_dokter/$p.php";
-} elseif ($p == "pasien_data") {
-    //pasien 
-    $nav     = "pasien";
-    $judul     = "pasien data";
-    $ambil     = "mod_pasien/$p.php";
-} elseif ($p == "pasien_tambah") {
-    $nav     = "pasien";
-    $judul     = "pasien tambah";
-    $ambil     = "mod_pasien/$p.php";
-} elseif ($p == "pasien_import") {
-    $nav     = "pasien";
-    $judul     = "pasien import";
-    $ambil     = "mod_pasien/$p.php";
-} elseif ($p == "pasien_edit") {
-    $nav     = "pasien";
-    $judul     = "pasien edit";
-    $ambil     = "mod_pasien/$p.php";
-} elseif ($p == "pasien_proses") {
-    $nav     = "pasien";
-    $judul     = "pasien proses";
-    $ambil     = "mod_pasien/$p.php";
-} elseif ($p == "kunjungan_data") {
-    //kunjungan 
-    $nav     = "kunjungan";
-    $judul     = "kunjungan data";
-    $ambil     = "mod_kunjungan/$p.php";
-} elseif ($p == "kunjungan_tambah") {
-    $nav     = "kunjungan";
-    $judul     = "kunjungan tambah";
-    $ambil     = "mod_kunjungan/$p.php";
-} elseif ($p == "kunjungan_import") {
-    $nav     = "kunjungan";
-    $judul     = "kunjungan import";
-    $ambil     = "mod_kunjungan/$p.php";
-} elseif ($p == "kunjungan_edit") {
-    $nav     = "kunjungan";
-    $judul     = "kunjungan edit";
-    $ambil     = "mod_kunjungan/$p.php";
-} elseif ($p == "kunjungan_proses") {
-    $nav     = "kunjungan";
-    $judul     = "kunjungan proses";
-    $ambil     = "mod_kunjungan/$p.php";
-} elseif ($p == "kamar_data") {
-    //kamar 
-    $nav     = "kamar";
-    $judul     = "kamar data";
-    $ambil     = "mod_kamar/$p.php";
-} elseif ($p == "kamar_tambah") {
-    $nav     = "kamar";
-    $judul     = "kamar tambah";
-    $ambil     = "mod_kamar/$p.php";
-} elseif ($p == "kamar_import") {
-    $nav     = "kamar";
-    $judul     = "kamar import";
-    $ambil     = "mod_kamar/$p.php";
-} elseif ($p == "kamar_edit") {
-    $nav     = "kamar";
-    $judul     = "kamar edit";
-    $ambil     = "mod_kamar/$p.php";
-} elseif ($p == "kamar_proses") {
-    $nav     = "kamar";
-    $judul     = "kamar proses";
-    $ambil     = "mod_kamar/$p.php";
-} elseif ($p == "obat_data") {
-    //obat 
-    $nav     = "obat";
-    $judul     = "obat data";
-    $ambil     = "mod_obat/$p.php";
-} elseif ($p == "obat_tambah") {
-    $nav     = "obat";
-    $judul     = "obat tambah";
-    $ambil     = "mod_obat/$p.php";
-} elseif ($p == "obat_import") {
-    $nav     = "obat";
-    $judul     = "obat import";
-    $ambil     = "mod_obat/$p.php";
-} elseif ($p == "obat_edit") {
-    $nav     = "obat";
-    $judul     = "obat edit";
-    $ambil     = "mod_obat/$p.php";
-} elseif ($p == "obat_proses") {
-    $nav     = "obat";
-    $judul     = "obat proses";
-    $ambil     = "mod_obat/$p.php";
-} elseif ($p == "rawat_inap_data") {
-    //rawat_inap 
-    $nav     = "rawat_inap";
-    $judul     = "rawat_inap data";
-    $ambil     = "mod_rawat_inap/$p.php";
-} elseif ($p == "rawat_inap_tambah") {
-    $nav     = "rawat_inap";
-    $judul     = "rawat_inap tambah";
-    $ambil     = "mod_rawat_inap/$p.php";
-} elseif ($p == "rawat_inap_import") {
-    $nav     = "rawat_inap";
-    $judul     = "rawat_inap import";
-    $ambil     = "mod_rawat_inap/$p.php";
-} elseif ($p == "rawat_inap_edit") {
-    $nav     = "rawat_inap";
-    $judul     = "rawat_inap edit";
-    $ambil     = "mod_rawat_inap/$p.php";
-} elseif ($p == "rawat_inap_proses") {
-    $nav     = "rawat_inap";
-    $judul     = "rawat_inap proses";
-    $ambil     = "mod_rawat_inap/$p.php";
-} elseif ($p == "rawat_jalan_data") {
-    //rawat_jalan 
-    $nav     = "rawat_jalan";
-    $judul     = "rawat_jalan data";
-    $ambil     = "mod_rawat_jalan/$p.php";
-} elseif ($p == "rawat_jalan_tambah") {
-    $nav     = "rawat_jalan";
-    $judul     = "rawat_jalan tambah";
-    $ambil     = "mod_rawat_jalan/$p.php";
-} elseif ($p == "rawat_jalan_import") {
-    $nav     = "rawat_jalan";
-    $judul     = "rawat_jalan import";
-    $ambil     = "mod_rawat_jalan/$p.php";
-} elseif ($p == "rawat_jalan_edit") {
-    $nav     = "rawat_jalan";
-    $judul     = "rawat_jalan edit";
-    $ambil     = "mod_rawat_jalan/$p.php";
-} elseif ($p == "rawat_jalan_proses") {
-    $nav     = "rawat_jalan";
-    $judul     = "rawat_jalan proses";
-    $ambil     = "mod_rawat_jalan/$p.php";
+} elseif ($p == "prodi_data") {
+    //prodi 
+    $nav     = "prodi";
+    $judul     = "prodi data";
+    $ambil     = "mod_prodi/$p.php";
+} elseif ($p == "prodi_tambah") {
+    $nav     = "prodi";
+    $judul     = "prodi tambah";
+    $ambil     = "mod_prodi/$p.php";
+} elseif ($p == "prodi_edit") {
+    $nav     = "prodi";
+    $judul     = "prodi edit";
+    $ambil     = "mod_prodi/$p.php";
+} elseif ($p == "prodi_proses") {
+    $nav     = "prodi";
+    $judul     = "prodi proses";
+    $ambil     = "mod_prodi/$p.php";
+} elseif ($p == "tahun_ajaran_data") {
+    //tahun_ajaran 
+    $nav     = "tahun_ajaran";
+    $judul     = "tahun_ajaran data";
+    $ambil     = "mod_tahun_ajaran/$p.php";
+} elseif ($p == "tahun_ajaran_tambah") {
+    $nav     = "tahun_ajaran";
+    $judul     = "tahun_ajaran tambah";
+    $ambil     = "mod_tahun_ajaran/$p.php";
+} elseif ($p == "tahun_ajaran_edit") {
+    $nav     = "tahun_ajaran";
+    $judul     = "tahun_ajaran edit";
+    $ambil     = "mod_tahun_ajaran/$p.php";
+} elseif ($p == "tahun_ajaran_proses") {
+    $nav     = "tahun_ajaran";
+    $judul     = "tahun_ajaran proses";
+    $ambil     = "mod_tahun_ajaran/$p.php";
+} elseif ($p == "x1_data") {
+    //data
+    $nav     = "x1";
+    $judul     = "Data X1 (Jumlah Biaya)";
+    $ambil     = "mod_upload/$p.php";
+} elseif ($p == "x2_data") {
+    //data
+    $nav     = "x2";
+    $judul     = "Data X2 (Jumlah Pendaftar)";
+    $ambil     = "mod_upload/$p.php";
+} elseif ($p == "y_data") {
+    //data
+    $nav     = "y";
+    $judul     = "Data Y (Jumlah Mahasiswa Baru)";
+    $ambil     = "mod_upload/$p.php";
+} elseif ($p == "x1_tambah") {
+    $nav     = "x1";
+    $judul     = "x1 tambah";
+    $ambil     = "mod_upload/$p.php";
+} elseif ($p == "x1_hapus") {
+    $nav     = "x1";
+    $judul     = "x1 hapus";
+    $ambil     = "mod_upload/$p.php";
+} elseif ($p == "upload_data") {
+    $nav     = "upload";
+    $judul     = "upload data";
+    $ambil     = "mod_upload/$p.php";
+} elseif ($p == "user_info") {
+    //info 
+    $nav     = "User";
+    $judul     = "User info";
+    $ambil     = "mod_user/$p.php";
+} elseif ($p == "tahun_ajaran_info") {
+    $nav     = "tahun_ajaran";
+    $judul     = "tahun_ajaran info";
+    $ambil     = "mod_tahun_ajaran/$p.php";
+} elseif ($p == "prodi_info") {
+    //info 
+    $nav     = "prodi";
+    $judul     = "prodi info";
+    $ambil     = "mod_prodi/$p.php";
 } else {
     $nav     = "Dashboard";
     $judul     = "dashboard";

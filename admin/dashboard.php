@@ -1,110 +1,61 @@
-<?php
-// if (isset($_POST['laporan'])) {
-//     $laporan = $_POST['laporan'];
-//     echo "
-//     <script language=javascript>
-//       document.location.href='?p=user_data';
-//     </script>";
-// }
-?>
-<div class="row">
-    <div class="col-md-3">
-        <div class="card border-success mb-3">
-            <div class="card-header">Total User</div>
-            <div class="card-body text-success">
-                <?php
-                $query = mysqli_query($conn, "SELECT COUNT(id_user) as total from user");
-                $data = mysqli_fetch_assoc($query);
-                ?>
-                <h1 class="card-title"><?= $data['total']; ?></h2>
+<div class="d-flex justify-content-center mb-2">
+    <img src="../assets/img/logo-login.jpg" width="150px" height="150px" alt="">
+</div>
+<h3>Selamat Datang</h3>
+<h3>Pengguna Aplikasi</h3>
+<h3>Analisis Linear Berganda digunakan untuk melihat pengaruh dua atau lebih variabel bebas</h3>
+<br>
+<div class="d-flex justify-content-center mb-2">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="bi bi-upload"></i> Upload Data</button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Upload Data</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card border-warning mb-3">
-            <?php
-            $query = mysqli_query($conn, "SELECT COUNT(kode_pasien) as total from pasien");
-            $data = mysqli_fetch_assoc($query);
-            ?>
-            <div class="card-header">Total Pasien</div>
-            <div class="card-body text-warning">
-                <h1 class="card-title"><?= $data['total']; ?></h2>
+            <div class="modal-body">
+                <form action="?p=upload_data" enctype="multipart/form-data" method="POST">
+                    <table width="100%">
+                        <!-- <tr>
+                            <td> <label for="exampleInputPassword1" class="mb-3 form-label">Variabel</label></td>
+                            <td></td>
+                            <td> <select class="mb-3 form-select" aria-label="Default select example" name="Variabel" required>
+                                    <option disabled selected>-variabel-</option>
+                                    <option value="x1">X1 (Jumlah biaya)</option>
+                                    <option value="x2">X2 (jumlah pendaftar)</option>
+                                    <option value="y">Y (jumlah mahasiswa baru)</option>
+                                </select></td>
+                        </tr> -->
+                        <tr>
+                            <td> <label for="exampleInputPassword1" class="mb-3 form-label">Prodi</label></td>
+                            <td></td>
+                            <td> <select class="mb-3 form-select" aria-label="Default select example" name="prodi" required>
+                                    <option disabled selected>-prodi-</option>
+                                    <?php
+                                    $query = mysqli_query($conn, "SELECT * FROM prodi");
+                                    while ($data = mysqli_fetch_assoc($query)) : ?>
+                                        <option value="<?= $data['kd_prodi']; ?>"><?= $data['nm_prodi']; ?></option>
+                                    <?php endwhile; ?>
+                                </select></td>
+                        </tr>
+                        <tr>
+                            <td> <label for="file" class="mb-3 form-label">file import</label></td>
+                            <td></td>
+                            <td> <input type="file" name="import_data" class="mb-3 form-control" id="file" aria-describedby="fileHelp" required></td>
+                        </tr>
+                    </table>
+
             </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card border-primary mb-3">
-            <div class="card-header">Total Kunjungan</div>
-            <?php
-            $query = mysqli_query($conn, "SELECT COUNT(kode_kunjungan) as total from kunjungan");
-            $data = mysqli_fetch_assoc($query);
-            ?>
-            <div class="card-body text-primary">
-                <h1 class="card-title"><?= $data['total']; ?></h2>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" name="upload" class="btn btn-primary">Upload Data</button>
             </div>
+            </form>
         </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card border-danger mb-3">
-            <div class="card-header">Total Dokter</div>
-            <div class="card-body text-danger">
-                <?php
-                $query = mysqli_query($conn, "SELECT COUNT(kode_dokter) as total from dokter");
-                $data = mysqli_fetch_assoc($query);
-                ?>
-                <h1 class="card-title"><?= $data['total']; ?></h2>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card border-success mb-3">
-            <div class="card-header">Total Kamar</div>
-            <div class="card-body text-success">
-                <?php
-                $query = mysqli_query($conn, "SELECT COUNT(kode_kamar) as total from kamar");
-                $data = mysqli_fetch_assoc($query);
-                ?>
-                <h1 class="card-title"><?= $data['total']; ?></h2>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card border-warning mb-3">
-            <div class="card-header">Total Obat</div>
-            <div class="card-body text-warning">
-                <?php
-                $query = mysqli_query($conn, "SELECT COUNT(kode_obat) as total from obat");
-                $data = mysqli_fetch_assoc($query);
-                ?>
-                <h1 class="card-title"><?= $data['total']; ?></h2>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card border-primary mb-3">
-            <div class="card-header">Total Rawat Inap</div>
-            <div class="card-body text-primary">
-                <?php
-                $query = mysqli_query($conn, "SELECT COUNT(kode_rawat_inap) as total from rawat_inap");
-                $data = mysqli_fetch_assoc($query);
-                ?>
-                <h1 class="card-title"><?= $data['total']; ?></h2>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="card border-danger mb-3">
-            <div class="card-header">Total Rawat Jalan</div>
-            <div class="card-body text-danger">
-                <?php
-                $query = mysqli_query($conn, "SELECT COUNT(kode_rawat_jalan) as total from rawat_jalan");
-                $data = mysqli_fetch_assoc($query);
-                ?>
-                <h1 class="card-title"><?= $data['total']; ?></h2>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-12">
-        <canvas id="barChart" style="max-height: 800px; max-width: 100%;"></canvas>
     </div>
 </div>

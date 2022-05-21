@@ -4,6 +4,7 @@
 // tambah data
 if (isset($_POST['add'])) {
 
+
   $username       = htmlspecialchars($_POST['username']);
   $ssql = mysqli_query($conn, "SELECT * FROM user where username='$username'");
   $daata = mysqli_fetch_assoc($ssql);
@@ -18,8 +19,10 @@ if (isset($_POST['add'])) {
   $password       = htmlspecialchars($_POST['password']);
   $id       = htmlspecialchars($_POST['id']);
   $level       = htmlspecialchars($_POST['level']);
+  $email       = htmlspecialchars($_POST['email']);
+  $nm_user       = htmlspecialchars($_POST['nm_user']);
 
-  $query = ("INSERT into user values('" . $id . "','" . $username . "','" . $password . "','" . $level . "')");
+  $query = ("INSERT into user values('" . $id . "','" . $nm_user . "','" . $username . "','" . $password . "','" . $email . "','" . $level . "')");
   if (mysqli_query($conn, $query)) {
 
     echo "
@@ -42,9 +45,11 @@ if (isset($_POST['add'])) {
 if (isset($_POST['edit'])) {
 
   $username       = htmlspecialchars($_POST['username']);
-  $id       = htmlspecialchars($_POST['id']);
   $password       = htmlspecialchars($_POST['password']);
+  $id       = htmlspecialchars($_POST['id']);
   $level       = htmlspecialchars($_POST['level']);
+  $email       = htmlspecialchars($_POST['email']);
+  $nm_user       = htmlspecialchars($_POST['nm_user']);
 
   $ssql = mysqli_query($conn, "SELECT * FROM user where username='$username'");
   $daata = mysqli_fetch_assoc($ssql);
@@ -60,7 +65,13 @@ if (isset($_POST['edit'])) {
     }
   }
 
-  $query = ("UPDATE user SET username='" . $username . "', password='" . $password . "', level='" . $level . "' WHERE id_user='" . $id . "'");
+  $query = ("UPDATE user SET 
+  username='" . $username . "'
+  , password='" . $password . "'
+  , level='" . $level . "'
+  , email='" . $email . "'
+  , nm_user='" . $nm_user . "'
+  WHERE id_user='" . $id . "'");
 
   if (mysqli_query($conn, $query)) {
 

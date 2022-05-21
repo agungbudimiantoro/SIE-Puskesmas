@@ -19,6 +19,7 @@ if ($_SESSION['level'] != 'admin') {
   <link rel="stylesheet" href="../assets/DataTables/css/dataTables.bootstrap5.min.css">
   <link rel="stylesheet" href="../assets/DataTables/datatables.min.css">
   <link rel="stylesheet" href="../assets/chart.js/Chart.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
   <style>
 
   </style>
@@ -30,7 +31,7 @@ if ($_SESSION['level'] != 'admin') {
   <!-- navbar -->
   <?php include "navbar.php"; ?>
   <!-- end of navbar -->
-  <div class="container mt-5 mb-5" style="min-height: 405px;">
+  <div class="container mt-5 mb-5" style="min-height: 475px;">
     <?php include "go.php"; ?>
     <?php include $ambil; ?>
   </div>
@@ -48,9 +49,11 @@ if ($_SESSION['level'] != 'admin') {
     });
     $('.dropdown-toggle').dropdown();
   </script>
-  <?php if ($p == '' || $p == 'dashboard') {
-    include "data/dashboard.php";
-  }
+  <?php
+  // if ($p == '' || $p == 'dashboard') {
+  //   include "data/dashboard.php";
+  // }
+  // include "../assets/chart.js/path.php";
   ?>
 </body>
 
