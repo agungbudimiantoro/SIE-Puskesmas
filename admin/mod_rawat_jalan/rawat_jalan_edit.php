@@ -12,17 +12,17 @@ $data = mysqli_fetch_assoc($query);
                 <input type="text" name="id" value="<?= $id ?>" readonly class="form-control" id="id" aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">kode Pasien</label>
+                <label for="exampleInputPassword1" class="form-label">nama Pasien</label>
                 <select class="form-select" aria-label="Default select example" name="kode_pasien" required>
-                    <option disabled selected>kode Pasien</option>
+                    <option disabled selected>nama Pasien</option>
                     <?php
                     $select_query = mysqli_query($conn, "SELECT * FROM pasien");
                     while ($data_sel = mysqli_fetch_assoc($select_query)) {
                         if ($data['kode_pasien'] == $data_sel['kode_pasien']) {
                     ?>
-                            <option selected value="<?= $data_sel['kode_pasien'] ?>"><?= $data_sel['kode_pasien'] ?></option>
+                            <option selected value="<?= $data_sel['kode_pasien'] ?>"><?= $data_sel['nama_pasien'] ?></option>
                         <?php } else { ?>
-                            <option value="<?= $data_sel['kode_pasien'] ?>"><?= $data_sel['kode_pasien'] ?></option>
+                            <option value="<?= $data_sel['kode_pasien'] ?>"><?= $data_sel['nama_pasien'] ?></option>
                         <?php } ?>
                     <?php } ?>
                 </select>
@@ -45,33 +45,33 @@ $data = mysqli_fetch_assoc($query);
                 </select>
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">kode dokter</label>
+                <label for="exampleInputPassword1" class="form-label">nama dokter</label>
                 <select class="form-select" aria-label="Default select example" name="kode_dokter" required>
-                    <option disabled selected>kode dokter</option>
+                    <option disabled selected>nama dokter</option>
                     <?php
                     $select_query = mysqli_query($conn, "SELECT * FROM dokter");
                     while ($data_sel = mysqli_fetch_assoc($select_query)) {
                         if ($data['kode_dokter'] == $data_sel['kode_dokter']) {
                     ?>
-                            <option selected value="<?= $data_sel['kode_dokter'] ?>"><?= $data_sel['kode_dokter'] ?></option>
+                            <option selected value="<?= $data_sel['kode_dokter'] ?>"><?= $data_sel['nama_dokter'] ?></option>
                         <?php } else { ?>
-                            <option value="<?= $data_sel['kode_dokter'] ?>"><?= $data_sel['kode_dokter'] ?></option>
+                            <option value="<?= $data_sel['kode_dokter'] ?>"><?= $data_sel['nama_dokter'] ?></option>
                         <?php } ?>
                     <?php } ?>
                 </select>
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">kode obat</label>
+                <label for="exampleInputPassword1" class="form-label">nama obat</label>
                 <select class="form-select" aria-label="Default select example" name="kode_obat" required>
-                    <option disabled selected>kode obat</option>
+                    <option disabled selected>nama obat</option>
                     <?php
                     $select_query = mysqli_query($conn, "SELECT * FROM obat");
                     while ($data_sel = mysqli_fetch_assoc($select_query)) {
                         if ($data['kode_obat'] == $data_sel['kode_obat']) {
                     ?>
-                            <option selected value="<?= $data_sel['kode_obat'] ?>"><?= $data_sel['kode_obat'] ?></option>
+                            <option selected value="<?= $data_sel['kode_obat'] ?>"><?= $data_sel['nama_obat'] ?></option>
                         <?php } else { ?>
-                            <option value="<?= $data_sel['kode_obat'] ?>"><?= $data_sel['kode_obat'] ?></option>
+                            <option value="<?= $data_sel['kode_obat'] ?>"><?= $data_sel['nama_obat'] ?></option>
                         <?php } ?>
                     <?php } ?>
                 </select>
@@ -85,4 +85,5 @@ $data = mysqli_fetch_assoc($query);
                 <button onclick="history.back()" class="btn btn-secondary">Kembali</button>
         </form>
     </div>
+</div>
 </div>

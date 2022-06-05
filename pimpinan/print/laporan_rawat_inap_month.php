@@ -46,10 +46,10 @@ if ($_SESSION['level'] != 'pimpinan') {
                         <tr>
                             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">kode rawat inap</th>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">kode pasien</th>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">kode dokter</th>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">kode kamar</th>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">kode obat</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">nama pasien</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">nama dokter</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">nama kamar</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">nama obat</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">tanggal masuk rawat inap</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">tanggal keluar rawat inap</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">biaya</th>
@@ -69,16 +69,60 @@ if ($_SESSION['level'] != 'pimpinan') {
                                     <?= $data['kode_rawat_inap'] ?>
                                 </td>
                                 <td>
-                                    <?= $data['kode_pasien'] ?>
+                                    <?php
+                                    $kode_1 = $data['kode_pasien'];
+                                    $query_1 = mysqli_query($conn, "SELECT * FROM pasien WHERE kode_pasien='$kode_1'");
+                                    $data_1 = mysqli_fetch_assoc($query_1);
+                                    ?>
+
+                                    <?php if ($data_1 != '') {
+                                        echo $data_1['nama_pasien'];
+                                    } else {
+                                        echo '---';
+                                    }
+                                    ?>
                                 </td>
                                 <td>
-                                    <?= $data['kode_dokter'] ?>
+                                    <?php
+                                    $kode_1 = $data['kode_dokter'];
+                                    $query_1 = mysqli_query($conn, "SELECT * FROM dokter WHERE kode_dokter='$kode_1'");
+                                    $data_1 = mysqli_fetch_assoc($query_1);
+                                    ?>
+
+                                    <?php if ($data_1 != '') {
+                                        echo $data_1['nama_dokter'];
+                                    } else {
+                                        echo '---';
+                                    }
+                                    ?>
                                 </td>
                                 <td>
-                                    <?= $data['kode_kamar'] ?>
+                                    <?php
+                                    $kode_1 = $data['kode_kamar'];
+                                    $query_1 = mysqli_query($conn, "SELECT * FROM kamar WHERE kode_kamar='$kode_1'");
+                                    $data_1 = mysqli_fetch_assoc($query_1);
+                                    ?>
+
+                                    <?php if ($data_1 != '') {
+                                        echo $data_1['nama_kamar'];
+                                    } else {
+                                        echo '---';
+                                    }
+                                    ?>
                                 </td>
                                 <td>
-                                    <?= $data['kode_obat'] ?>
+                                    <?php
+                                    $kode_1 = $data['kode_obat'];
+                                    $query_1 = mysqli_query($conn, "SELECT * FROM obat WHERE kode_obat='$kode_1'");
+                                    $data_1 = mysqli_fetch_assoc($query_1);
+                                    ?>
+
+                                    <?php if ($data_1 != '') {
+                                        echo $data_1['nama_obat'];
+                                    } else {
+                                        echo '---';
+                                    }
+                                    ?>
                                 </td>
                                 <td>
                                     <?= $data['tgl_masuk_rawat'] ?>

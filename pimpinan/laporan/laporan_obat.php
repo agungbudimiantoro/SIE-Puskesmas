@@ -39,7 +39,7 @@
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">jumlah</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">tanggal masuk</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">tanggal keluar</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">kode dokter</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">nama dokter</th>
             </tr>
         </thead>
         <tbody>
@@ -69,8 +69,19 @@
                     <td>
                         <?= $data['tgl_keluar_obat'] ?>
                     </td>
+
+                    <?php
+                    $kd_dokter = $data['kd_dokter'];
+                    $query1 = mysqli_query($conn, "SELECT * FROM dokter WHERE kode_dokter='$kd_dokter'");
+                    $kd_dokter = mysqli_fetch_assoc($query1);
+                    ?>
                     <td>
-                        <?= $data['kd_dokter'] ?>
+                        <?php if ($kd_dokter != '') {
+                            echo $kd_dokter['nama_dokter'];
+                        } else {
+                            echo '---';
+                        }
+                        ?>
                     </td>
                 </tr>
             <?php }; ?>

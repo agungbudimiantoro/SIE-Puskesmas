@@ -33,7 +33,18 @@ $data = mysqli_fetch_assoc($query);
             </div>
             <div class="mb-3">
                 <label for="umur" class="form-label">kode dokter</label>
-                <input type="text" value="<?= $data['kd_dokter'] ?>" name="kd_dokter" class="form-control" id="jumlah" aria-describedby="emailHelp" required>
+                <select class="form-select" aria-label="Default select example" name="kd_dokter" required>
+                    <option disabled selected value="">Nama dokter</option>
+                    <?php
+                    $select_query = mysqli_query($conn, "SELECT * FROM dokter");
+                    while ($data_sel = mysqli_fetch_assoc($select_query)) {
+                    ?>
+                        <option value="<?= $data_sel['kode_dokter'] ?>" <?php if ($data['kd_dokter'] == $data_sel['kode_dokter']) {
+                                                                            echo "selected";
+                                                                        }; ?>><?= $data_sel['nama_dokter'] ?></option>
+                    <?php } ?>
+                </select>
+
             </div>
             <button type="submit" name="edit" class="btn btn-primary">Ubah</button>
             <button onclick="history.back()" class="btn btn-secondary">Kembali</button>

@@ -7,8 +7,8 @@ if (isset($_POST['add'])) {
   $kode_pasien       = htmlspecialchars($_POST['kode_pasien']);
   $id       = htmlspecialchars($_POST['id']);
   $hasil_diaknosa       = htmlspecialchars($_POST['hasil_diaknosa']);
-
-  $query = ("INSERT into dokter values('" . $id . "','" . $kode_pasien . "','" . $hasil_diaknosa . "')");
+  $nama_dokter       = htmlspecialchars($_POST['nama_dokter']);
+  $query = ("INSERT into dokter values('" . $id . "','" . $nama_dokter . "','" . $kode_pasien . "','" . $hasil_diaknosa . "')");
   if (mysqli_query($conn, $query)) {
 
     echo "
@@ -33,8 +33,9 @@ if (isset($_POST['edit'])) {
   $kode_pasien       = htmlspecialchars($_POST['kode_pasien']);
   $id       = htmlspecialchars($_POST['id']);
   $hasil_diaknosa       = htmlspecialchars($_POST['hasil_diaknosa']);
+  $nama_dokter       = htmlspecialchars($_POST['nama_dokter']);
 
-  $query = ("UPDATE dokter SET kode_pasien='" . $kode_pasien . "', hasil_diaknosa='" . $hasil_diaknosa . "' WHERE kode_dokter='" . $id . "'");
+  $query = ("UPDATE dokter SET kode_pasien='" . $kode_pasien . "',nama_dokter='" . $nama_dokter . "', hasil_diaknosa='" . $hasil_diaknosa . "' WHERE kode_dokter='" . $id . "'");
 
   if (mysqli_query($conn, $query)) {
 

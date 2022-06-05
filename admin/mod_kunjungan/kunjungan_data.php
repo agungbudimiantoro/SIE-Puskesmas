@@ -19,7 +19,7 @@
         <tr>
             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">kode kunjungan</th>
-            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">kode pasien</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">nama pasien</th>
             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">tanggal kunjungan</th>
             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Aksi</th>
         </tr>
@@ -37,7 +37,18 @@
                     <?= $data['kode_kunjungan'] ?>
                 </td>
                 <td>
-                    <?= $data['kode_pasien'] ?>
+                    <?php
+                    $kode_pasien = $data['kode_pasien'];
+                    $query_pasien = mysqli_query($conn, "SELECT * FROM pasien WHERE kode_pasien='$kode_pasien'");
+                    $data_pasien = mysqli_fetch_assoc($query_pasien);
+                    ?>
+
+                    <?php if ($data_pasien != '') {
+                        echo $data_pasien['nama_pasien'];
+                    } else {
+                        echo '---';
+                    }
+                    ?>
                 </td>
                 <td>
                     <?= $data['tgl_kunjungan'] ?>

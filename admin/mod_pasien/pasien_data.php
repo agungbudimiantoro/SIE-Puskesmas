@@ -19,7 +19,7 @@
         <tr>
             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">kode pasien</th>
-            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">nama paseien</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">nama pasien</th>
             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">umur</th>
             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">alamat</th>
             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">pekerjaan</th>

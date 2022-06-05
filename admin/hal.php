@@ -51,6 +51,7 @@ if ($_SESSION['level'] != 'admin') {
   <?php if ($p == '' || $p == 'dashboard') {
     include "data/dashboard.php";
   }
+  include "../assets/chart.js/path.php";
   ?>
 </body>
 

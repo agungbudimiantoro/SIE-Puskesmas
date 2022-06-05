@@ -17,6 +17,10 @@ $id_hitung = $hrf . sprintf("%03s", $urt);
                 <input type="text" name="id" value="<?= $id_hitung ?>" readonly class="form-control" id="username" aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3">
+                <label for="username" class="form-label">Nama Dokter</label>
+                <input type="text" name="nama_dokter" value="" class="form-control" id="username" aria-describedby="emailHelp" required>
+            </div>
+            <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Nama Pasien</label>
                 <select class="form-select" aria-label="Default select example" name="kode_pasien" required>
                     <option disabled selected>Nama Pasien</option>
@@ -45,6 +49,7 @@ $id_hitung = $hrf . sprintf("%03s", $urt);
         <tr>
             <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Kode Doket</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama Dokter</th>
             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama Pasien</th>
             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Hasil Diaknosa</th>
             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Aksi</th>
@@ -61,6 +66,9 @@ $id_hitung = $hrf . sprintf("%03s", $urt);
                 </td>
                 <td>
                     <?= $data['kode_dokter'] ?>
+                </td>
+                <td>
+                    <?= $data['nama_dokter'] ?>
                 </td>
                 <?php
                 $kode_pasien = $data['kode_pasien'];

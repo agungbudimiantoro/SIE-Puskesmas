@@ -34,12 +34,11 @@
             <tr>
                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">kode rawat jalan</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">kode pasien</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">kode kunjungan</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">kode dokter</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">kode obat</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">nama pasien</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">tanggal kunjungan</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">nama dokter</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">nama obat</th>
                 <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">tanggal berobat</th>
-                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -55,25 +54,66 @@
                         <?= $data['kode_rawat_jalan'] ?>
                     </td>
                     <td>
-                        <?= $data['kode_pasien'] ?>
+                        <?php
+                        $kode_1 = $data['kode_pasien'];
+                        $query_1 = mysqli_query($conn, "SELECT * FROM pasien WHERE kode_pasien='$kode_1'");
+                        $data_1 = mysqli_fetch_assoc($query_1);
+                        ?>
+
+                        <?php if ($data_1 != '') {
+                            echo $data_1['nama_pasien'];
+                        } else {
+                            echo '---';
+                        }
+                        ?>
                     </td>
                     <td>
-                        <?= $data['kode_kunjungan'] ?>
+                        <?php
+                        $kode_1 = $data['kode_kunjungan'];
+                        $query_1 = mysqli_query($conn, "SELECT * FROM kunjungan WHERE kode_kunjungan='$kode_1'");
+                        $data_1 = mysqli_fetch_assoc($query_1);
+                        ?>
+
+                        <?php if ($data_1 != '') {
+                            echo $data_1['tgl_kunjungan'];
+                        } else {
+                            echo '---';
+                        }
+                        ?>
                     </td>
                     <td>
-                        <?= $data['kode_dokter'] ?>
+                        <?php
+                        $kode_1 = $data['kode_dokter'];
+                        $query_1 = mysqli_query($conn, "SELECT * FROM dokter WHERE kode_dokter='$kode_1'");
+                        $data_1 = mysqli_fetch_assoc($query_1);
+                        ?>
+
+                        <?php if ($data_1 != '') {
+                            echo $data_1['nama_dokter'];
+                        } else {
+                            echo '---';
+                        }
+                        ?>
                     </td>
                     <td>
-                        <?= $data['kode_obat'] ?>
+                        <?php
+                        $kode_1 = $data['kode_obat'];
+                        $query_1 = mysqli_query($conn, "SELECT * FROM obat WHERE kode_obat='$kode_1'");
+                        $data_1 = mysqli_fetch_assoc($query_1);
+                        ?>
+
+                        <?php if ($data_1 != '') {
+                            echo $data_1['nama_obat'];
+                        } else {
+                            echo '---';
+                        }
+                        ?>
                     </td>
                     <td>
                         <?= $data['tgl_berobat'] ?>
                     </td>
 
-                    <td>
-                        <a href="?p=rawat_jalan_edit&id=<?= $data['kode_rawat_jalan'] ?>" class="btn btn-warning">Ubah</a>
-                        <a href="?p=rawat_jalan_proses&id=<?= $data['kode_rawat_jalan'] ?>" onclick="return confirm('anda yakin ingin menghapus data?')" class="btn btn-danger">Hapus</a>
-                    </td>
+
                 </tr>
             <?php }; ?>
         </tbody>

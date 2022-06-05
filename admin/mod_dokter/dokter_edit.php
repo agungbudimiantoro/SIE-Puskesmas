@@ -12,6 +12,10 @@ $data = mysqli_fetch_assoc($query);
                     <input type="text" name="id" value="<?= $id ?>" readonly class="form-control" id="username" aria-describedby="emailHelp" required>
                 </div>
                 <div class="mb-3">
+                    <label for="username" class="form-label">Nama Dokter</label>
+                    <input type="text" name="nama_dokter" value="<?= $data['nama_dokter'] ?>" class="form-control" id="username" aria-describedby="emailHelp" required>
+                </div>
+                <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Nama Pasien</label>
                     <select class="form-select" aria-label="Default select example" name="kode_pasien" required>
                         <option disabled selected>Nama Pasien</option>
