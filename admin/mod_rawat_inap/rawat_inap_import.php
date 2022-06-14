@@ -21,10 +21,34 @@ if (isset($_POST['import'])) {
 
 
     $kode = $value[2];
-    $pasien = $value[3];
-    $dokter = $value[4];
-    $kamar = $value[5];
-    $obat = $value[6];
+
+    $nama_pasien = $value[3];
+    $query_d = mysqli_query($conn, "SELECT * FROM pasien where nama_pasien='$nama_pasien'");
+    $data_d = mysqli_fetch_assoc($query_d);
+    $pasien = $data_d['kode_pasien'];
+
+    $nama_dokter = $value[4];
+    $query_d = mysqli_query($conn, "SELECT * FROM dokter where nama_dokter='$nama_dokter'");
+    $data_d = mysqli_fetch_assoc($query_d);
+
+    $dokter = $data_d['kode_dokter'];
+
+
+    $nama_kamar = $value[5];
+    $query_d = mysqli_query($conn, "SELECT * FROM kamar where nama_kamar='$nama_kamar'");
+    $data_d = mysqli_fetch_assoc($query_d);
+
+    $kamar = $data_d['kode_kamar'];
+
+
+    $nama_obat = $value[6];
+    $query_d = mysqli_query($conn, "SELECT * FROM obat where nama_obat='$nama_obat'");
+    $data_d = mysqli_fetch_assoc($query_d);
+
+    $obat = $data_d['kode_obat'];
+
+
+
     $masuk = format_date($value[7]);
     $keluar = format_date($value[8]);
     $jumlah = $value[9];

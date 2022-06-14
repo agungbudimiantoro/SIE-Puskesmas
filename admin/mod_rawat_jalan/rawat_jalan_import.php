@@ -21,11 +21,31 @@ if (isset($_POST['import'])) {
 
 
     $kode = $value[2];
-    $pasien = $value[3];
+    $nama_pasien = $value[3];
+
+    $query_d = mysqli_query($conn, "SELECT * FROM pasien where nama_pasien='$nama_pasien'");
+    $data_d = mysqli_fetch_assoc($query_d);
+    $pasien = $data_d['kode_pasien'];
+
     $kunjungan = $value[4];
-    $dokter = $value[5];
-    $obat = $value[6];
+    $nama_dokter = $value[5];
+
+    $query_d = mysqli_query($conn, "SELECT * FROM dokter where nama_dokter='$nama_dokter'");
+    $data_d = mysqli_fetch_assoc($query_d);
+
+    $dokter = $data_d['kode_dokter'];
+
+    $nama_obat = $value[6];
+
+    $query_d = mysqli_query($conn, "SELECT * FROM obat where nama_obat='$nama_obat'");
+    $data_d = mysqli_fetch_assoc($query_d);
+
+    $obat = $data_d['kode_obat'];
+
     $tanggal = format_date($value[7]);
+
+
+
     $sql = "INSERT INTO rawat_jalan VALUES ";
     $sql .= " ('$kode', '$pasien','$kunjungan','$dokter','$obat','$tanggal')";
     $mysqli = mysqli_query($conn, $sql);

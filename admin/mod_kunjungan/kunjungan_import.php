@@ -22,7 +22,11 @@ if (isset($_POST['import'])) {
 
 
     $kode = $value[2];
-    $kode_pasien = $value[3];
+    $nama_pasien = $value[3];
+    $query_d = mysqli_query($conn, "SELECT * FROM pasien where nama_pasien='$nama_pasien'");
+    $data_d = mysqli_fetch_assoc($query_d);
+    $kode_pasien = $data_d['kode_pasien'];
+
     $tgl_kunjungan = format_date($value[4]);
 
     $sql = "INSERT INTO kunjungan (kode_kunjungan, kode_pasien, tgl_kunjungan) VALUES ";

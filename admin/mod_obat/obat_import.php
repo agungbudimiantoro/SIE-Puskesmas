@@ -26,7 +26,13 @@ if (isset($_POST['import'])) {
     $jumlah = $value[5];
     $masuk = format_date($value[6]);
     $keluar = format_date($value[7]);
-    $kd_dokter = $value[8];
+    $nama_dokter = $value[8];
+
+    $query_d = mysqli_query($conn, "SELECT * FROM dokter where nama_dokter='$nama_dokter'");
+    $data_d = mysqli_fetch_assoc($query_d);
+
+    $kd_dokter = $data_d['kode_dokter'];
+
     $sql = "INSERT INTO obat VALUES ";
     $sql .= " ('$kode', '$nama','$jenis','$jumlah','$masuk','$keluar','$kd_dokter')";
     $mysqli = mysqli_query($conn, $sql);
